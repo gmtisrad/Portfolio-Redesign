@@ -61,7 +61,11 @@ html, body {
 }
 
 .project-technologies {
-    font-size: 1.25em;
+    font-size: 2.5em;
+}
+
+.project-technologies i {
+    padding: 0 10px;
 }
 
 .project-description {
@@ -89,6 +93,45 @@ html, body {
     color: #EAF1F7;
 }
 
+.footer {
+    position: relative;
+    padding-top: 10px;
+    background-color: #38577C;
+    max-width: 100vw;
+    z-index: 2;
+}
+
+.contact-info{
+    width: 100%;
+    font-size: 1.1em;
+    color: #EAF1F7;
+}
+
+.contact-info:hover {
+    color: #6F9ABC;
+}
+
+.next-section {
+    position: fixed;
+    bottom: 0;
+    left: 50vw;
+    font-size: 4em;
+    color: #EAF1F7;
+    animation: bounce 1.5s;
+    animation-iteration-count: infinite;
+    z-index: 0;
+}
+
+.next-section:hover {
+    color: #EAF1F7;
+}
+
+@keyframes bounce {
+    0% {transform: translateY(0);}
+    40% {transform: translateY(20px);}
+    60% {transform: translateY(20px);}
+    100% {transform: translateY(0);}
+}
 @media screen and (max-width: 480px){
     html {
         font-size: .75em;
