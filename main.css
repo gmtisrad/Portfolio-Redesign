@@ -1,0 +1,100 @@
+html, body {
+    min-height: 100vh;
+    max-width: 100vw;
+    color: #EAF1F7;
+    font-family: Roboto, sans-serif;
+}
+
+.social-icons a i {
+    color: #EAF1F7;
+}
+
+.landing-page {
+    background-color: #38577C;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.full-page {
+    min-height: 100vh;
+}
+
+.summary-page {
+    background-color: #6F9ABC;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.summary-header {
+    font-size: 3em;
+}
+
+.tagline {
+    font-size: 1.75em;
+}
+
+.project-page {
+    background-color: #A6C4E0;
+}
+
+.project-iframe {
+    width: 100%;
+    height: 100%;
+}
+
+#project1 {
+    height: inherit;
+    min-height: 100vh;
+}
+
+#project1-row {
+    min-height: 100vh;
+}
+
+.project-header {
+    font-size: 3em;
+    font-family: Limelight, cursive;
+}
+
+.project-technologies {
+    font-size: 1.25em;
+}
+
+.project-description {
+    color: #38577C;
+    font-size: 1.25em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#project2 {
+    height: inherit;
+    min-height: 100vh;
+}
+
+#project2-row {
+    min-height: 100vh;
+}
+
+.project-page2 {
+    background-color: #6F9ABC;
+}
+
+#project2-row .project-description {
+    color: #EAF1F7;
+}
+
+@media screen and (max-width: 480px){
+    html {
+        font-size: .75em;
+    }
+    
+    #summary {
+        text-align: left;
+    }
+}
