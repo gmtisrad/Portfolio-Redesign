@@ -62,7 +62,7 @@ const STORE = {
 }
 
 function renderPage() {
-    let pageHtml = (createLandingPage() + createSummaryPage() + createProjects());
+    let pageHtml = (createLandingPage() + createSummaryPage() + createProjects() + createFooter());
     $('body').prepend(pageHtml);
     handleEvents();
 }
@@ -121,7 +121,7 @@ function createSummary () {
                             </div>`;
         summaryHtml.push(taglineHtml);
     }
-    return summaryHtml.join();
+    return summaryHtml.join('');
 }
 
 function createProjects () {
@@ -129,7 +129,7 @@ function createProjects () {
 
     for (let i = 0; i < STORE.projects.length; i++) {
         if(i == 0 || 0 == i%2){
-            let project = `<section class='full-page project-page'>
+            let project = `<section class='full-page project-page${i+1}'>
                                 <div id='project${i+1}' class='container'>
                                     <div id='project${i+1}-row'class='row'>
                                         <div class='project-iframe-container d-none d-sm-inline-block col-sm-7 embed-responsive-4by3'>
@@ -146,7 +146,7 @@ function createProjects () {
             projectsHtml.push(project);
         }
         else{
-            let project = `<section class='full-page project-page'>
+            let project = `<section class='full-page project-page${i+1}'>
                                 <div id='project${i+1}' class='container'>
                                     <div id='project${i+1}-row'class='row'>
                                         <div class='project-description col-12 col-sm-5'>
@@ -187,6 +187,26 @@ function createProjectSummaries(numProj) {
     return projectSummary.join('');
 }
 
+function createFooter () {
+    let footer = `
+    <section class='footer'>
+        <div id='footer' class='container'>
+            <div id='footer-row' class='row'>
+                <div class='col-12 col-sm-4 email'>
+                    <h3 class='text-center'>EMAIL</h3>
+                    <a href='mailto:Gabe.M.Timm@gmail.com' class='text-center contact-info'><p>Gabe.M.Timm@gmail.com</p></a>
+                </div>
+                <div class='d-none d-md-block col-sm-4 placeholder'></div>
+                <div class='col-12 col-sm-4 phone'>
+                    <h3 class='text-center'>PHONE</h3>
+                    <a href='tel:+19712260252' class='text-center contact-info'><p>971.226.0252</p></a>
+                </div>
+            </div>
+        </div>
+    </section>`;
+    return footer;
+}
+
 function handleNextPage () {
     $('.js-next-section').on('click', function(event) {
         event.preventDefault();
@@ -208,6 +228,9 @@ function handleScroll () {
         let numPages = Math.floor(yOffset / window.innerHeight) + 1;
         
         if (0 == numPages % 2) {
+            $('.js-next-section').css('color', '#38577C');
+        }
+        else if (3 == numPages) {
             $('.js-next-section').css('color', '#38577C');
         }
         else {
