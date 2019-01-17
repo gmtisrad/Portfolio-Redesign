@@ -20,15 +20,24 @@ const STORE = {
                 'fab fa-html5',
                 'fab fa-css3-alt',
                 'fab fa-js-square'
+            ],
+            summary: [
+                `Movie Hub gathers all of the information about a movie you're interested in into one place.`,
+                `With just a few simple clicks you can get a description of your movie, the New York Times reviews, the top related Youtube clips and even the full cast list.`
             ]
         },
         {
             name: 'The Office Quiz',
-            live: 'https://gmtisrad.github.io/movie-hub/',
+            live: 'https://gmtisrad.github.io/the-office-quiz/',
             technologies: [
                 'fab fa-html5',
                 'fab fa-css3-alt',
                 'fab fa-js-square'
+            ],
+            summary: [
+                'Test your mettle and see if you know as much about The Office as you think',
+                'I have 5 years of nearly constant research of The Office under my belt. I dug deep inside my wealth of knowledge and found the most difficult questions I could.',
+                'Good luck and Godspeed.'
             ]
         },
     ],
@@ -53,8 +62,7 @@ const STORE = {
 }
 
 function renderPage() {
-    let pageHtml = (createLandingPage() + createSummaryPage());
-    alert ('page loading')
+    let pageHtml = (createLandingPage() + createSummaryPage() + createProjects());
     $('body').prepend(pageHtml);
     handleEvents();
 }
@@ -114,6 +122,69 @@ function createSummary () {
         summaryHtml.push(taglineHtml);
     }
     return summaryHtml.join();
+}
+
+function createProjects () {
+    let projectsHtml = [];
+
+    for (let i = 0; i < STORE.projects.length; i++) {
+        if(i == 0 || 0 == i%2){
+            let project = `<section class='full-page project-page'>
+                                <div id='project${i+1}' class='container'>
+                                    <div id='project${i+1}-row'class='row'>
+                                        <div class='project-iframe-container d-none d-sm-inline-block col-sm-7 embed-responsive-4by3'>
+                                            <iframe class='embed-responsive-item project-iframe' src='${STORE.projects[i].live}'></iframe>
+                                        </div>
+                                        <div class='project-description col-12 col-sm-5'>
+                                            <h3 class='text-center project-header'>${STORE.projects[i].name}</h3>
+                                            <span class='text-center project-technologies'>${createTechLinks(i)}</span>
+                                            ${createProjectSummaries(i)}
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>`;
+            projectsHtml.push(project);
+        }
+        else{
+            let project = `<section class='full-page project-page'>
+                                <div id='project${i+1}' class='container'>
+                                    <div id='project${i+1}-row'class='row'>
+                                        <div class='project-description col-12 col-sm-5'>
+                                            <h3 class='text-center project-header'>${STORE.projects[i].name}</h3>
+                                            <span class='text-center project-technologies'>${createTechLinks(i)}</span>
+                                            ${createProjectSummaries(i)}
+                                        </div>
+                                        <div class='project-iframe-container d-none d-sm-inline-block col-sm-7 embed-responsive-4by3'>
+                                            <iframe class='embed-responsive-item project-iframe' src='${STORE.projects[i].live}'></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>`;
+            projectsHtml.push(project); 
+        }
+    }
+
+    return projectsHtml.join('');
+}
+
+function createTechLinks(projNum) {
+    let techLinks = [];
+
+    for (let i = 0; i < STORE.projects.technologies; i++){
+        let link = `<i class='${STORE.projects[projNum].links[i]}'>`;
+        techLinks.push(link);
+    }
+    return techLinks.join('');
+}
+
+function createProjectSummaries(numProj) {
+    let projectSummary = [];
+
+    for (let i = 0; i < STORE.projects[numProj].summary.length; i++) {
+        let summary = `<p class='text-center'>${STORE.projects[numProj].summary[i]}</p>`;
+        projectSummary.push(summary);
+    }
+    return projectSummary.join('');
 }
 
 function handleNextPage () {
