@@ -230,9 +230,6 @@ function handleScroll () {
         if (0 == numPages % 2) {
             $('.js-next-section').css('color', '#38577C');
         }
-        else if (3 == numPages) {
-            $('.js-next-section').css('color', '#38577C');
-        }
         else {
             $('.js-next-section').css('color', '#EAF1F7');
         }
