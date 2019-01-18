@@ -116,18 +116,13 @@ html, body {
     bottom: 0;
     left: 50vw;
     font-size: 4em;
-    color: #EAF1F7;
     animation: bounce 1.5s;
     animation-iteration-count: infinite;
     z-index: 97;
 }
 
-.next-section:hover {
-    color: #EAF1F7;
-}
-
 a {
-    color: inherit !important;
+    color: inherit;
 }
 
 @keyframes bounce {

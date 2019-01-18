@@ -86,7 +86,7 @@ function createLandingPage() {
                 </div>
             </div>
         </main>
-        <a href='' class='next-section js-next-section'><i class="fas fa-angle-down"></i></a>`;
+        <a href='' class='next-section js-next-section d-none d-md-inline-block'><i class="fas fa-angle-down"></i></a>`;
     return landingHtml;
 }
 
@@ -215,9 +215,9 @@ function handleNextPage () {
     $('.js-next-section').on('click', function(event) {
         event.preventDefault();
         let yOffset = window.pageYOffset + 1;
-        let numPages = Math.floor(yOffset / window.screenHeight) + 1;
+        let numPages = Math.floor(yOffset / window.innerHeight) + 1;
         
-        scrollTo = numPages * window.screenHeight;
+        scrollTo = numPages * window.innerHeight;
 
         window.scroll({ 
             top : scrollTo,
