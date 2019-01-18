@@ -16,6 +16,7 @@ const STORE = {
         {
             name: 'Movie Hub',
             live: 'https://gmtisrad.github.io/movie-hub/',
+            repo: 'https://github.com/gmtisrad/movie-hub',
             technologies: [
                 'fab fa-html5',
                 'fab fa-css3-alt',
@@ -29,6 +30,7 @@ const STORE = {
         {
             name: 'The Office Quiz',
             live: 'https://gmtisrad.github.io/the-office-quiz/',
+            repo: 'https://github.com/gmtisrad/the-office-quiz',
             technologies: [
                 'fab fa-html5',
                 'fab fa-css3-alt',
@@ -139,7 +141,7 @@ function createProjects () {
                                             <h3 class='text-center project-header'>${STORE.projects[i].name}</h3>
                                             <span class='text-center project-technologies'>${createTechLinks(i)}</span>
                                             ${createProjectSummaries(i)}
-                                            <a href='${STORE.projects[i].live}'><h5 class='text-center live-demo'>Live Demo</h5></a>
+                                            <h5 class='text-center live-demo'><a href='${STORE.projects[i].live}' target='_blank' rel='noopener noreferrer'>Live Demo</a> | <a href='${STORE.projects[i].repo}' target='_blank' rel='noopener noreferrer'>Github Repo</a></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -154,7 +156,7 @@ function createProjects () {
                                             <h3 class='text-center project-header'>${STORE.projects[i].name}</h3>
                                             <span class='text-center project-technologies'>${createTechLinks(i)}</span>
                                             ${createProjectSummaries(i)}
-                                            <a href='${STORE.projects[i].live}'><h5 class='text-center live-demo'>Live Demo</h5></a>
+                                            <h5 class='text-center live-demo'><a href='${STORE.projects[i].live}' target='_blank' rel='noopener noreferrer'>Live Demo</a> | <a href='${STORE.projects[i].repo}' target='_blank' rel='noopener noreferrer'>Github Repo</a></h5>
                                         </div>
                                         <div class='project-iframe-container d-none d-md-inline-block col-md-7 embed-responsive-4by3'>
                                             <iframe class='embed-responsive-item project-iframe' src='${STORE.projects[i].live}'></iframe>
@@ -213,9 +215,9 @@ function handleNextPage () {
     $('.js-next-section').on('click', function(event) {
         event.preventDefault();
         let yOffset = window.pageYOffset + 1;
-        let numPages = Math.floor(yOffset / window.innerHeight) + 1;
+        let numPages = Math.floor(yOffset / window.screenHeight) + 1;
         
-        scrollTo = numPages * window.innerHeight;
+        scrollTo = numPages * window.screenHeight;
 
         window.scroll({ 
             top : scrollTo,
