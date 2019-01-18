@@ -132,13 +132,14 @@ function createProjects () {
             let project = `<section class='full-page project-page${i+1}'>
                                 <div id='project${i+1}' class='container'>
                                     <div id='project${i+1}-row'class='row'>
-                                        <div class='project-iframe-container d-none d-sm-inline-block col-sm-7 embed-responsive-4by3'>
+                                        <div class='project-iframe-container d-none d-md-inline-block col-md-7 embed-responsive-4by3'>
                                             <iframe class='embed-responsive-item project-iframe' src='${STORE.projects[i].live}'></iframe>
                                         </div>
-                                        <div class='project-description col-12 col-sm-5'>
+                                        <div class='project-description col-12 col-md-5'>
                                             <h3 class='text-center project-header'>${STORE.projects[i].name}</h3>
                                             <span class='text-center project-technologies'>${createTechLinks(i)}</span>
                                             ${createProjectSummaries(i)}
+                                            <a href='${STORE.projects[i].live}'><h5 class='text-center live-demo'>Live Demo</h5></a>
                                         </div>
                                     </div>
                                 </div>
@@ -149,12 +150,13 @@ function createProjects () {
             let project = `<section class='full-page project-page${i+1}'>
                                 <div id='project${i+1}' class='container'>
                                     <div id='project${i+1}-row'class='row'>
-                                        <div class='project-description col-12 col-sm-5'>
+                                        <div class='project-description col-12 col-md-5'>
                                             <h3 class='text-center project-header'>${STORE.projects[i].name}</h3>
                                             <span class='text-center project-technologies'>${createTechLinks(i)}</span>
                                             ${createProjectSummaries(i)}
+                                            <a href='${STORE.projects[i].live}'><h5 class='text-center live-demo'>Live Demo</h5></a>
                                         </div>
-                                        <div class='project-iframe-container d-none d-sm-inline-block col-sm-7 embed-responsive-4by3'>
+                                        <div class='project-iframe-container d-none d-md-inline-block col-md-7 embed-responsive-4by3'>
                                             <iframe class='embed-responsive-item project-iframe' src='${STORE.projects[i].live}'></iframe>
                                         </div>
                                     </div>
@@ -170,8 +172,8 @@ function createProjects () {
 function createTechLinks(projNum) {
     let techLinks = [];
 
-    for (let i = 0; i < STORE.projects.technologies; i++){
-        let link = `<i class='${STORE.projects[projNum].links[i]}'>`;
+    for (let i = 0; i < STORE.projects[projNum].technologies.length; i++){
+        let link = `<i class='${STORE.projects[projNum].technologies[i]}'></i>`;
         techLinks.push(link);
     }
     return techLinks.join('');
@@ -192,12 +194,12 @@ function createFooter () {
     <section class='footer'>
         <div id='footer' class='container'>
             <div id='footer-row' class='row'>
-                <div class='col-12 col-sm-4 email'>
+                <div class='col-12 col-md-4 email'>
                     <h3 class='text-center'>EMAIL</h3>
                     <a href='mailto:Gabe.M.Timm@gmail.com' class='text-center contact-info'><p>Gabe.M.Timm@gmail.com</p></a>
                 </div>
-                <div class='d-none d-md-block col-sm-4 placeholder'></div>
-                <div class='col-12 col-sm-4 phone'>
+                <div class='d-none d-md-block col-md-4 placeholder'></div>
+                <div class='col-12 col-md-4 phone'>
                     <h3 class='text-center'>PHONE</h3>
                     <a href='tel:+19712260252' class='text-center contact-info'><p>971.226.0252</p></a>
                 </div>

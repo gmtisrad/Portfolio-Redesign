@@ -126,6 +126,10 @@ html, body {
     color: #EAF1F7;
 }
 
+a {
+    color: inherit !important;
+}
+
 @keyframes bounce {
     0% {transform: translateY(0);}
     40% {transform: translateY(20px);}
